@@ -179,7 +179,7 @@ CHECK_NETWORK()
 {
 echo -e "$(NT)  checking the network connection"
 sleep 1
-ip=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n 1)
+ip=$(ip a | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n 1)
     if [[ $ip == "" ]]; then
         echo -e "$(ET)  ${RED}no internet connection${RESAT}"
         sleep 0.5
